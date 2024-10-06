@@ -8,7 +8,32 @@ export default function ReviewPage() {
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
     const [reviewText, setReviewText] = useState('');
-
+    
+    async function fetchProductAndReviews(params) {
+        const db = await connect(); 
+    
+        // Fetch the product details
+        const productQuery = await db.query('SELECT * FROM products WHERE id = $1', [params.id]);
+        const product = productQuery.rows[0];
+    
+        // Fetch all reviews 
+        const reviewsQuery = await db.query('SELECT * FROM reviews WHERE productId = $1', [params.id]);
+        const reviewsAll = reviewsQuery.rows;
+    
+       
+        if (!product) {
+            return { error: 'Product not found' };
+        }
+    
+       
+        if (!reviewsAll) {
+            return { error: 'Reviews not found' };
+        }
+    
+        return { product, reviewsAll }; 
+    }
+    
+   
     // Handle Form Submit
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,6 +64,7 @@ export default function ReviewPage() {
             setMessage('Error submitting review');
         }
     };
+
 
     // Love me love me say that you love me
     const handleLike = (id) => {
@@ -98,6 +124,27 @@ export default function ReviewPage() {
                 {/* I am a teapot error 418 */}
                 {message && <p>{message}</p>}
             </form>
+   
+            {/* Reviews Section */}
+            <div className="reviewProductDisplay">
+                <h2>Reviews</h2>
+                {reviews.length === 0 ? (
+                    <p>No reviews for this product yet.</p>
+                ) : (
+                    <div className="reviews-list">
+                        {reviewsAll.map(review => (
+                            <div key={review.review_id} className="review-item">
+                                <h3>{review.username}</h3>
+                                <p>{review.review}</p>
+                                <p>Likes: {review.likes}</p>
+                                <p>Posted on: {new Date(review.time).toLocaleString()}</p>
+                                <button onClick={() => handleLike(review.id)}>Like</button>
+                                <button onClick={() => handleDelete(review.id)}>Delete</button>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
         </div>
     );
 }

@@ -12,6 +12,9 @@ export default async function SinglePage({ params }) {
     if (!product) {
         return <div>Product not found</div>;
     }
+    if (!reviews) {
+        return <div>Review not found</div>;
+    }
 
     return (
         <div className="singlePageDisplay">
@@ -40,6 +43,8 @@ export default async function SinglePage({ params }) {
                     </div>
                 )}
             </div>
+            {/* Form section */}
+            
         </div>
     );
 }
