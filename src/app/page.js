@@ -14,13 +14,8 @@ export default function Home() {
 
   return (
     <>
-    
-      <h1>Home page</h1>
-      <p>Hi every one, please tell me your name!</p>
-
+    <h1 className="flex items-center justify-center my-8">Happy Halloween and feel free to explore</h1>
       
-          
-      {/* <Forms iAmYourMama={myServerAction} /> */}
     </>
   );
 }
