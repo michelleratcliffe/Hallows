@@ -1,4 +1,5 @@
 import { connect } from "@/../Utilities/connect.js";
+import Image from "next/image";
 
 export default async function SinglePage({ params }) {
     const db = await connect();  // Await the database connection
@@ -17,12 +18,21 @@ export default async function SinglePage({ params }) {
     }
 
     return (
-        <div className="singlePageDisplay">
+        <div className="singlePageDisplay p-7">
             {/* Product Details */}
             <div>
-                <h1>{product.productname}</h1>
+                <br />
+                <h1 className="text-3xl">{product.productname}</h1>
+                <br />
                 <p>{product.description}</p>
-                <img src={product.img_url} alt={product.description} width="300" />
+                <br />
+                <Image
+                    src={product.img_url}
+                    alt={product.description}
+                    height={1026} 
+                    width={762}
+                    className=" object-cover h-48 w-96 rounded-lg shadow-md border-cyan-700 border-4"
+                />
             </div>
 
             {/* Reviews Section */}
@@ -43,7 +53,7 @@ export default async function SinglePage({ params }) {
                     </div>
                 )}
             </div>
-            {/* Form section */}
+            
             
         </div>
     );
