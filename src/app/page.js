@@ -1,5 +1,3 @@
-// 39.05
-// import Forms from "./components/Forms";
 
 import Header from "@/components/Header";
 import Image from "next/image";
@@ -16,8 +14,8 @@ export default function Home() {
             <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
               <Image src={YoMamma}
               alt="Happy Hallows"
-              width={1280} automatically provided
-              height={600} automatically provided
+              width={1280} 
+              height={600} 
               // blurDataURL="data:..." automatically provided
               placeholder="blur" // Optional blur-up while loading
               priority
