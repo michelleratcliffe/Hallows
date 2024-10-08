@@ -11,17 +11,17 @@ export default async function ReviewsAllPage() {
         return <div>Review not found</div>;
     }
 
-    // Love me love me say that you love me
-    const handleLike = (id) => {
-        setReviews(reviews.map(review => 
-            review.id === id ? { ...review, likes: review.likes + 1 } : review
-        ));
-    };
+    // // Love me love me say that you love me
+    // const handleLike = (id) => {
+    //     setReviews(reviews.map(review => 
+    //         review.id === id ? { ...review, likes: review.likes + 1 } : review
+    //     ));
+    // };
 
-    // Do you really wanna Delete me
-    const handleDelete = (id) => {
-        setReviews(reviews.filter(review => review.id !== id));
-    };
+    // // Do you really wanna Delete me
+    // const handleDelete = (id) => {
+    //     setReviews(reviews.filter(review => review.id !== id));
+    // };
     
     return (
         <div className="singlePageDisplay">
@@ -37,7 +37,7 @@ export default async function ReviewsAllPage() {
                     </div>
                 ))}
             </div>
-            {/* Form section */}
+            
             
         </div>
     );

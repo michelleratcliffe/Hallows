@@ -14,7 +14,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Halloween is here",
+  title: "Halloween is upon us",
   description: "Getting spooky in here",
 };
 

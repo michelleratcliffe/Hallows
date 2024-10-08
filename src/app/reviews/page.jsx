@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 export default function ReviewPage() {
     const [reviews, setReviews] = useState([]);
-    const [category, setCategory] = useState('company');
+    const [category, setCategory] = useState('product');
     const [name, setName] = useState('');
     const [message, setMessage] = useState('');
     const [reviewText, setReviewText] = useState('');
@@ -19,13 +19,11 @@ export default function ReviewPage() {
         // Fetch all reviews 
         const reviewsQuery = await db.query('SELECT * FROM reviews WHERE productId = $1', [params.id]);
         const reviewsAll = reviewsQuery.rows;
-    
        
         if (!product) {
             return { error: 'Product not found' };
         }
     
-       
         if (!reviewsAll) {
             return { error: 'Reviews not found' };
         }
@@ -33,7 +31,7 @@ export default function ReviewPage() {
         return { product, reviewsAll }; 
     }
     
-   
+   //redirect('/reviews'); 
     // Handle Form Submit
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -55,7 +53,8 @@ export default function ReviewPage() {
                 setMessage('Review submitted successfully!');
                 setName('');
                 setReviewText('');
-                setCategory('company');
+                setCategory('product');
+                
             } else {
                 setMessage(result.message || 'Error submitting review');
             }
@@ -63,24 +62,25 @@ export default function ReviewPage() {
             console.error('Error submitting review:', error);
             setMessage('Error submitting review');
         }
+        
     };
 
 
-    // Love me love me say that you love me
-    const handleLike = (id) => {
-        setReviews(reviews.map(review => 
-            review.id === id ? { ...review, likes: review.likes + 1 } : review
-        ));
-    };
+    // // Love me love me say that you love me
+    // const handleLike = (id) => {
+    //     setReviews(reviews.map(review => 
+    //         review.id === id ? { ...review, likes: review.likes + 1 } : review
+    //     ));
+    // };
 
-    // Do you really wanna Delete me
-    const handleDelete = (id) => {
-        setReviews(reviews.filter(review => review.id !== id));
-    };
+    // // Do you really wanna Delete me
+    // const handleDelete = (id) => {
+    //     setReviews(reviews.filter(review => review.id !== id));
+    // };
 
     return (
         <div className="p-6">
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 text-zinc-950">
                 <div>
                     <label htmlFor="category">Review Category:</label>
                     <select 
@@ -126,7 +126,7 @@ export default function ReviewPage() {
             </form>
    
             {/* Reviews Section */}
-            <div className="reviewProductDisplay">
+            {/* <div className="reviewProductDisplay">
                 <h2>Reviews</h2>
                 {reviews.length === 0 ? (
                     <p>No reviews for this product yet.</p>
@@ -144,7 +144,7 @@ export default function ReviewPage() {
                         ))}
                     </div>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 }

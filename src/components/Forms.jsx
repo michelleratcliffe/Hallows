@@ -2,8 +2,13 @@
 
 import { useState } from "react";
 
-export default function Forms({ iAmYourMama }) {
+export default function Forms({ whoIsYourDaddy }) {
   const [message, setMessage] = useState("");
+  const [username, setUsername] = useState("");
+  const [review, setReview] = useState([]);
+
+
+
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -13,30 +18,49 @@ export default function Forms({ iAmYourMama }) {
     console.log("I am on the client: ", myData);
 
     // here, we want the server to do something
-    iAmYourMama(myData);
+    whoIsYourDaddy(myData); 
+    const reviewData = { username, review };
+    
+ //redirect('/reviews'); 
+
 
     setMessage("");
     event.target.reset();
   }
 
   function handleChange(event) {
+    setUsername(event.target.value);
     setMessage(event.target.value);
-    console.log("Our message is: ", message);
+    console.log("Your name is: ", username);
+    console.log("Your message is: ", message);
+    
   }
 
   return (
     <>
-      <h2>This is my form</h2>
-      <p>Our message is: {message}</p>
-      <form onSubmit={handleSubmit}>
+      <h2>Please review our company or your favorite products</h2>
+      {/* <p>Our message is: {message}</p> */}
+      <form onSubmit={handleSubmit} method="POST">
         <input
-          name="message"
-          placeholder="Write a message or give your name"
-          onChange={handleChange}
-        />
-        
-        <button>Submit</button>
+          name="name"
+          placeholder="Enter your name"
+          onChange={handleChange}/>
+          <br /><br />
+        <input
+          name="review"
+          placeholder="Write a review"
+          onChange={handleChange}/>
+          <br /><br />
+        <button  type="submit">Submit</button>
       </form>
     </>
   );
 }
+
+// CREATE TABLE companyreviews (
+//   username VARCHAR(100),
+//   review TEXT, 
+// );
+
+// INSERT INTO companyreviews (username, message)
+
