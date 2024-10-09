@@ -5,14 +5,16 @@ export default function Header() {
     return (
         <header className="bg-fuchsia-950 text-white p-4">
             <div className="container mx-auto flex justify-between items-center">
-                
+            <Link href="/" className="hover:text-gray-300">
+                <Image 
+                            src="/logo1.svg"  
+                            alt="Logo"
+                            width={120}
+                            height={90}
+                        />
+            </Link>
                 <div className="flex items-center">
-                    <Image 
-                        src="/logo1.svg"  
-                        alt="Logo"
-                        width={120}
-                        height={90}
-                    />
+                    
                 </div>
 
                 {/* Navi */}
