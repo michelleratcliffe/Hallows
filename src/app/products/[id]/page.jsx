@@ -50,7 +50,9 @@ export default async function SinglePage({ params }) {
                         ))}
                     </div>
                 )}
-            </div>  
+            </div>
+            
+            
         </div>
     );
 }
