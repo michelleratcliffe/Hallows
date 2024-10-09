@@ -10,12 +10,10 @@ export default async function SinglePage({ params }) {
     // Fetch all reviews for this product
     const reviews = (await db.query('SELECT * FROM reviews WHERE productId = $1', [params.id])).rows;
 
-    if (!product) {
+    if (!product && !reviews) {
         return <div>Product not found</div>;
     }
-    if (!reviews) {
-        return <div>Review not found</div>;
-    }
+ 
 
     return (
         <div className="singlePageDisplay p-7">
@@ -46,15 +44,13 @@ export default async function SinglePage({ params }) {
                             <div key={review.review_id} className="review-item">
                                 <h3>{review.username}</h3>
                                 <p>{review.review}</p>
-                                <p>Likes: {review.likes}</p>
+                                {/* <p>Likes: {review.likes}</p> */}
                                 <p>Posted on: {new Date(review.time).toLocaleString()}</p>
                             </div>
                         ))}
                     </div>
                 )}
-            </div>
-            
-            
+            </div>  
         </div>
     );
 }
