@@ -8,7 +8,7 @@ export default function Home() {
     <>
     <div className="flex items-center justify-center my-8 text-5xl">
 
-    <button type="button" class="bg-indigo-500 ..." disabled>
+    {/* <button type="button" class="bg-indigo-500 ..." disabled>
             <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
               <Image src={YoMamma}
               alt="Happy Hallows"
@@ -20,7 +20,7 @@ export default function Home() {
               />
             </svg>
             Processing...
-        </button>
+        </button> */}
 
       
     </div>
