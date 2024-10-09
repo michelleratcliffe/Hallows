@@ -32,7 +32,7 @@ export default async function ReviewsAllPage() {
                     <div key={review.review_id} className="review-item">
                         <h3>{review.username}</h3>
                         <p>{review.review}</p>
-                        <p>Likes: {review.likes}</p>
+                        {/* <p>Likes: {review.likes}</p> */}
                         <p>Posted on: {new Date(review.time).toLocaleString()}</p>
                     </div>
                 ))}

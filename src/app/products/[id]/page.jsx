@@ -29,7 +29,7 @@ export default async function SinglePage({ params }) {
                     alt={product.description}
                     height={1026} 
                     width={762}
-                    className=" object-cover h-48 w-96 rounded-lg shadow-md border-cyan-700 border-4"
+                    className="size-1/4  rounded-lg shadow-md border-cyan-700 border-4"
                 />
             </div>
 
