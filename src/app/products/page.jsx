@@ -11,6 +11,7 @@ export default async function productsPage({searchParams}) {
     const db =  await connect()
     const products = (await db.query(`SELECT * FROM products`)).rows
 
+    console.log(products)
 
     //sort by asc or desc
     //if i have time use SLUGS
@@ -37,8 +38,8 @@ export default async function productsPage({searchParams}) {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
                 {sorted.map(products => (
-                    <Link href={`/products/${products.id}`}>
-                        <div key={products.id} className="relative group">
+                    <Link href={`/products/${products.id}`} key={products.id}>
+                        <div  className="relative group">
                             <Image
                                 src={products.img_url}
                                 alt={products.description}
