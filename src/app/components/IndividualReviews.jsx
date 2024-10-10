@@ -24,7 +24,7 @@ export default async function IndividualReviews({postId}) {
     console.log('Server action: ', reviewData)
 
         try {
-            const response = await fetch('http://localhost:3002/api/reviews', {
+            const response = await fetch('https://hallows-69.vercel.app/api/reviews', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
