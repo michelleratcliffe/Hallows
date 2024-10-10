@@ -1,5 +1,5 @@
 import { connect } from "@/../Utilities/connect.js";
-import IndividualReviews from "@/app/components/individualreviews";
+import IndividualReviews from "@/app/components/IndividualReviews";
 import Image from "next/image";
 
 

@@ -34,10 +34,7 @@ export default async function IndividualReviews({postId}) {
             
             const result = await response.json();
             console.log('The result is:', result)
-
-            
-            
-               
+   
         
         } catch (error) {
             console.error('Error submitting review:', error);
