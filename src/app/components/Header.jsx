@@ -25,9 +25,6 @@ export default function Header() {
                             <Link href="/products" className="hover:text-gray-300">Products</Link>
                         </li>
                         <li>
-                            <Link href="/reviews" className="hover:text-gray-300">Write a review</Link>
-                        </li>
-                        <li>
                             <Link href="/reviewspage" className="hover:text-gray-300">All Reviews</Link>
                         </li>
                     </ul>

@@ -44,7 +44,7 @@ export default async function productsPage({searchParams}) {
                                 alt={products.description}
                                 height={140}
                                 width={100}
-                                className="size-full rounded-lg shadow-md border-cyan-700 border-4"
+                                className="size-full rounded-lg shadow-md border-white-700 border-4"
                             />
                             <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity rounded-lg">
                                 <h2 className="text-white text-xl font-bold text-center p-2">

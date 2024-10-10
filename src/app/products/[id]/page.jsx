@@ -1,9 +1,11 @@
 import { connect } from "@/../Utilities/connect.js";
+import IndividualReviews from "@/app/components/individualreviews";
 import Image from "next/image";
+
 
 export default async function SinglePage({ params }) {
     const db = await connect();  // Await the database connection
-
+    // console.log(params)
     // Fetch the product details
     const product = (await db.query('SELECT * FROM products WHERE id = $1', [params.id])).rows[0];
 
@@ -36,20 +38,7 @@ export default async function SinglePage({ params }) {
             {/* Reviews Section */}
             <div className="reviewProductDisplay">
                 <h2>Reviews</h2>
-                {reviews.length === 0 ? (
-                    <p>No reviews for this product yet.</p>
-                ) : (
-                    <div className="reviews-list">
-                        {reviews.map(review => (
-                            <div key={review.review_id} className="review-item">
-                                <h3>{review.username}</h3>
-                                <p>{review.review}</p>
-                                {/* <p>Likes: {review.likes}</p> */}
-                                <p>Posted on: {new Date(review.time).toLocaleString()}</p>
-                            </div>
-                        ))}
-                    </div>
-                )}
+                <IndividualReviews postId={params.id}/>
             </div>
         </div>
     );

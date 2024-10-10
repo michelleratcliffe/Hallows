@@ -8,18 +8,13 @@ export default function Home() {
     <>
     <div className="flex items-center justify-center my-8 text-5xl">
 
-    <button type="button" className="bg-indigo-500" disabled>
-            <svg className="animate-spin h-5 w-5 mr-3" viewBox="0 0 24 24">
-              <Image src={YoMamma}
+    <Image src={YoMamma}
               alt="Happy Hallows"
               width={1280} 
               height={600} 
               placeholder="blur" // Optional blur-up while loading
               priority
               />
-            </svg>
-            Processing...
-        </button>
 
       
     </div>

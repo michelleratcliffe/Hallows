@@ -9,7 +9,9 @@ export default async function ReviewsAllPage() {
 
     if (!reviews) {
         return <div>Review not found</div>;
+        
     }
+    // console.log(reviews)
 
     // // Love me love me say that you love me
     // const handleLike = (id) => {
